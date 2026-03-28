@@ -1,8 +1,8 @@
-class FinanceModel {
+class Data {
   final double principal;
   final double monthlyRate;
 
-  FinanceModel({
+  Data({
     required this.principal,
     required this.monthlyRate,
   });

@@ -12,15 +12,12 @@ class _HomeViewState extends State<HomeView> {
   final moneyController = TextEditingController();
   final rateController = TextEditingController();
   final controller = FinanceController();
-
   String result = "";
-
   void handleCalculate() {
-    final model = FinanceModel(
+    final model = Data(
       principal: double.tryParse(moneyController.text) ?? 0,
       monthlyRate: (double.tryParse(rateController.text) ?? 0) / 100,
     );
-
     setState(() {
       result = controller.calculate(model);
     });
@@ -56,8 +53,6 @@ class _HomeViewState extends State<HomeView> {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-
-            // 💰 Display kiểu iOS
             Container(
               alignment: Alignment.centerRight,
               padding: EdgeInsets.all(20),
@@ -125,7 +120,7 @@ class _HomeViewState extends State<HomeView> {
               child: ElevatedButton(
                 onPressed: handleCalculate,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFFF9500), // cam iOS
+                  backgroundColor: Color(0xFFFF9500),
                   padding: EdgeInsets.symmetric(vertical: 18),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
